@@ -23,8 +23,8 @@ export class ColorPickerModel {
                 this.color.rgba.a +
             ')'
             return {
-                label: txt,
-                textEdit: { /*range: range,*/ text: txt }
+                label: txt
+                //textEdit: { /*range: range,*/ text: txt }
             }
         }
         return this.colorPresentations[this.presentationIndex] || this.colorPresentations[0]
