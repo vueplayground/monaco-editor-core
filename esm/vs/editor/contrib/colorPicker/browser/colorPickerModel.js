@@ -14,7 +14,11 @@ export class ColorPickerModel {
         this._color = color;
         this._onDidChangeColor.fire(color);
     }
-    get presentation() { return this.colorPresentations[this.presentationIndex]; }
+    get presentation() {
+        return this.colorPresentations[this.presentationIndex] ||
+        this.colorPresentations[0] ||
+        {};
+    }
     get colorPresentations() {
         return this._colorPresentations;
     }
