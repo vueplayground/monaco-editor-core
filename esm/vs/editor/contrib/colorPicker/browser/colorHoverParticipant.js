@@ -203,7 +203,6 @@ function renderHoverParts(participant, editor, themeService, hoverParts, context
 function _updateEditorModel(editor, range, model, context) {
     let textEdits;
     let newRange;
-    console.log('model', model)
     if (model.presentation.textEdit) {
         textEdits = [model.presentation.textEdit];
         newRange = new Range(model.presentation.textEdit.range.startLineNumber, model.presentation.textEdit.range.startColumn, model.presentation.textEdit.range.endLineNumber, model.presentation.textEdit.range.endColumn);

@@ -15,9 +15,19 @@ export class ColorPickerModel {
         this._onDidChangeColor.fire(color);
     }
     get presentation() {
-        return this.colorPresentations[this.presentationIndex] ||
-        this.colorPresentations[0] ||
-        {};
+        if (!this.colorPresentations.length) {
+            const txt = 'rgba(' +
+                this.color.rgba.r + ',' +
+                this.color.rgba.g + ',' +
+                this.color.rgba.b + ',' +
+                this.color.rgba.a +
+            ')'
+            return {
+                label: txt,
+                textEdit: { /*range: range,*/ text: txt }
+            }
+        }
+        return this.colorPresentations[this.presentationIndex] || this.colorPresentations[0]
     }
     get colorPresentations() {
         return this._colorPresentations;
