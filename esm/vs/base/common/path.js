@@ -61,7 +61,7 @@ function validateObject(pathObject, name) {
 }
 function validateString(value, name) {
     if (typeof value !== 'string') {
-        throw new ErrorInvalidArgType(name, 'string', value);
+        // throw new ErrorInvalidArgType(name, 'string', value);
     }
 }
 const platformIsWin32 = (process.platform === 'win32');
