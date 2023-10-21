@@ -1006,7 +1006,7 @@ export const posix = {
         let resolvedPath = '';
         let resolvedAbsolute = false;
         for (let i = pathSegments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-            const path = i >= 0 ? pathSegments[i] : posixCwd();
+            let path = i >= 0 ? pathSegments[i] : posixCwd();
             if (typeof path !== 'string') path = ''
             validateString(path, 'path');
             // Skip empty entries
