@@ -682,6 +682,7 @@ export const win32 = {
         if (ext !== undefined) {
             validateString(ext, 'ext');
         }
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         let start = 0;
         let end = -1;
