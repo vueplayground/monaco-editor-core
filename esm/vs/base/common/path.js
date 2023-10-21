@@ -61,7 +61,7 @@ function validateObject(pathObject, name) {
 }
 function validateString(value, name) {
     if (typeof value !== 'string') {
-        // throw new ErrorInvalidArgType(name, 'string', value);
+        throw new ErrorInvalidArgType(name, 'string', value);
     }
 }
 const platformIsWin32 = (process.platform === 'win32');
@@ -1168,6 +1168,7 @@ export const posix = {
         if (ext !== undefined) {
             validateString(ext, 'ext');
         }
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         let start = 0;
         let end = -1;
