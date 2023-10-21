@@ -168,6 +168,7 @@ export const win32 = {
             let path;
             if (i >= 0) {
                 path = pathSegments[i];
+                if (typeof path !== 'string') path = ''
                 validateString(path, 'path');
                 // Skip empty entries
                 if (path.length === 0) {
@@ -291,6 +292,7 @@ export const win32 = {
             `${resolvedDevice}${resolvedTail}` || '.';
     },
     normalize(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         const len = path.length;
         if (len === 0) {
@@ -378,6 +380,7 @@ export const win32 = {
         return isAbsolute ? `${device}\\${tail}` : `${device}${tail}`;
     },
     isAbsolute(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         const len = path.length;
         if (len === 0) {
@@ -598,6 +601,7 @@ export const win32 = {
         return path;
     },
     dirname(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         const len = path.length;
         if (len === 0) {
@@ -767,6 +771,7 @@ export const win32 = {
         return path.slice(start, end);
     },
     extname(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         let start = 0;
         let startDot = -1;
@@ -830,6 +835,7 @@ export const win32 = {
     },
     format: _format.bind(null, '\\'),
     parse(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         const ret = { root: '', dir: '', base: '', ext: '', name: '' };
         if (path.length === 0) {
@@ -1001,6 +1007,7 @@ export const posix = {
         let resolvedAbsolute = false;
         for (let i = pathSegments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
             const path = i >= 0 ? pathSegments[i] : posixCwd();
+            if (typeof path !== 'string') path = ''
             validateString(path, 'path');
             // Skip empty entries
             if (path.length === 0) {
@@ -1019,6 +1026,7 @@ export const posix = {
         return resolvedPath.length > 0 ? resolvedPath : '.';
     },
     normalize(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         if (path.length === 0) {
             return '.';
@@ -1039,6 +1047,7 @@ export const posix = {
         return isAbsolute ? `/${path}` : path;
     },
     isAbsolute(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         return path.length > 0 && path.charCodeAt(0) === CHAR_FORWARD_SLASH;
     },
@@ -1137,6 +1146,7 @@ export const posix = {
         return path;
     },
     dirname(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         if (path.length === 0) {
             return '.';
@@ -1245,6 +1255,7 @@ export const posix = {
         return path.slice(start, end);
     },
     extname(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         let startDot = -1;
         let startPart = 0;
@@ -1299,6 +1310,7 @@ export const posix = {
     },
     format: _format.bind(null, '/'),
     parse(path) {
+        if (typeof path !== 'string') path = ''
         validateString(path, 'path');
         const ret = { root: '', dir: '', base: '', ext: '', name: '' };
         if (path.length === 0) {
